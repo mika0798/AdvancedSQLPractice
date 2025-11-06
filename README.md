@@ -1,2 +1,2 @@
 # AdvancedSQLPractice
-Some advanced practices with subquery, regex, self-join, window function, CTEs, procedures
+Some advanced practices with subqueries, regex, self-join, window functions, CTEs, procedures
