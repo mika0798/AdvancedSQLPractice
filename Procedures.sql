@@ -6,7 +6,7 @@ DELIMITER $$
 CREATE PROCEDURE getAverageGpa()
 BEGIN
 	SELECT AVG(gpa) AS averageGpa
-  FROM students;
+  	FROM students;
 END $$    
 DELIMITER ;
 
@@ -17,8 +17,8 @@ DELIMITER $$
 CREATE PROCEDURE getStudentById(IN id_param INT)
 BEGIN
 	SELECT * 
-  FROM students
-  WHERE student_id = id_param;
+  	FROM students
+  	WHERE student_id = id_param;
 END $$
 DELIMITER ;
 
@@ -29,7 +29,7 @@ DELIMITER $$
 CREATE PROCEDURE getTotalStudents(OUT total INT)
 BEGIN
 	SELECT COUNT(*) INTO total 
-  FROM students;
+  	FROM students;
 END $$
 DELIMITER ;
 
@@ -42,8 +42,8 @@ DELIMITER $$
 CREATE PROCEDURE getTopStudent(IN minGpa DECIMAL (3,2))
 BEGIN
 	SELECT name, major, gpa
-  FROM students
-  WHERE gpa > minGpa;
+  	FROM students
+  	WHERE gpa > minGpa;
 END $$
 DELIMITER ;
 
@@ -54,8 +54,8 @@ DELIMITER $$
 CREATE PROCEDURE updateStudentMajor(IN id_param INT,IN major_param VARCHAR(50))
 BEGIN
 	UPDATE students
-  SET major = major_param
-  WHERE student_id = id_param;
+  	SET major = major_param
+  	WHERE student_id = id_param;
 END $$
 DELIMITER ;
 
@@ -68,7 +68,7 @@ DELIMITER $$
 CREATE PROCEDURE deleteStudent(IN id_param INT)
 BEGIN
 	DELETE FROM students
-  WHERE student_id = id_param;
+  	WHERE student_id = id_param;
 END $$
 DELIMITER ;
 
@@ -78,11 +78,17 @@ DELIMITER $$
 CREATE PROCEDURE averageCourseGpa(IN name_param VARCHAR(50))
 BEGIN
 	SELECT e.course_name AS Course, AVG(s.gpa) AS AverageGPA
-  FROM students s
-  JOIN enrollments e USING (student_id)
-  GROUP BY e.course_name
-  HAVING e.course_name LIKE name_param;
+  	FROM students s
+  	JOIN enrollments e USING (student_id)
+  	GROUP BY e.course_name
+  	HAVING e.course_name LIKE name_param;
 END $$
 DELIMITER ;
 
 CALL averageCourseGpa('Introduction to Programming');
+
+-- Show and Drop Procedures --
+-- ************************ --
+
+SHOW PROCEDURE STATUS WHERE DB = 'university';
+DROP PROCEDURE IF EXISTS deleteStudent;
