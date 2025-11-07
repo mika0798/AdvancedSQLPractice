@@ -21,4 +21,4 @@ To go through this practice, start off with 'Database Initialization' then:
   
 Enjoy!
 
-<em>Notes: All queries and functions used in this practiced are MySQL-based. For those who use SQL Server, you might need to look up for relatively similar functions that are supported in Microsoft SQL Server!</em>
+<em>Notes: All queries and functions used in this practice are MySQL-based. For those who use SQL Server, you might need to look up for relatively similar functions that are supported in Microsoft SQL Server!</em>
